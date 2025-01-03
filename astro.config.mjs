@@ -3,10 +3,11 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import netlify from '@astrojs/netlify';
 import partytown from '@astrojs/partytown';
-
+import robotsTxt from 'astro-robots-txt';
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), sitemap(), partytown()],
+  site: 'https://tale-of-survival.netlify.app',
+  integrations: [tailwind(), sitemap(), partytown(), robotsTxt()],
   output: 'server',
   adapter: netlify(), // Changed to Netlify adapter
 });

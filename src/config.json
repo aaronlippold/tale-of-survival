@@ -3,9 +3,9 @@
   "showCountingSell": false,
   "showBuyAudiobookButton": false,
   "sections": {
-    "showBuyAudiobook": false,
+    "showBuyAudiobook": true,
     "showDownloadFreeChapter": true,
-    "showAboutAuthor": false
+    "showAboutAuthor": true
   },
   "seo": {
     "title": "The Tale Of Survival",
