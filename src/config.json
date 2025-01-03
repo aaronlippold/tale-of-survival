@@ -8,9 +8,9 @@
     "showAboutAuthor": false
   },
   "seo": {
-    "title": "The Tale of Survival",
-    "description": "A solitary rower and the tragedy that marred the history of the fishing village",
-    "canonical": "https://www.livrochapadadocorisco.com",
+    "title": "The Tale Of Survival",
+    "description": "The Tale of Survival follows Phương Nguyễn, a young girl in Saigon during the Vietnam War, as she and her family navigate the challenges and upheaval following the fall of Saigon, showcasing their resilience, bravery, and hope amidst adversity.",
+    "canonical": "https://tale-of-surivial.netlify.app/",
     "locale": "en_US",
     "image": "/cover.webp"
   },
@@ -26,13 +26,13 @@
     "linkedinUrl": "https://www.linkedin.com/in/janebvogel/"
   },
   "book": {
-    "title": "The Tale of Survival",
+    "title": "The Tale Of Survival",
     "isbn": "979-8-89663-267-2",
     "releaseDate": "2024-12-17",
     "price": "18.99",
     "currency": "USD",
-    "buyPhysicalUrl": "https://www.arteimpressaeditora.com.br/product-page/chapada-do-corisco-alisson-carvalho",
-    "buyDigitalUrl": "https://www.amazon.com.br/Chapada-do-Corisco-Alisson-Carvalho-ebook/dp/B09WTD7RW9/",
+    "buyPhysicalUrl": "https://www.amazon.com/TALE-SURVIVAL-Jane-Phuong-Nguyen-ebook/dp/B0DQXCBXN7?dib=eyJ2IjoiMSJ9.n_BqF8kh5PqAPCYYA78hhQ.6f71k4V29CK_dtz9rRF-BWxaEgVghH4qoH0AtI8KLZ0&dib_tag=se&keywords=The+Tale+of+Survival+Jane+Phuong+Nguyen&qid=1734977196&sr=8-1",
+    "buyDigitalUrl": "https://www.amazon.com/TALE-SURVIVAL-Jane-Phuong-Nguyen-ebook/dp/B0DQXCBXN7?dib=eyJ2IjoiMSJ9.n_BqF8kh5PqAPCYYA78hhQ.6f71k4V29CK_dtz9rRF-BWxaEgVghH4qoH0AtI8KLZ0&dib_tag=se&keywords=The+Tale+of+Survival+Jane+Phuong+Nguyen&qid=1734977196&sr=8-1",
     "buyAudiobookUrl": "#"
   },
   "sectionPrices": {
@@ -43,7 +43,7 @@
         "cents": 0
       },
       "details": [
-        "Comming Soon"
+        "Coming Soon"
       ],
       "button": {
         "label": "In recording",
