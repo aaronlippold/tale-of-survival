@@ -4,33 +4,33 @@
   "showBuyAudiobookButton": false,
   "sections": {
     "showBuyAudiobook": false,
-    "showDownloadFreeChapter": false,
-    "showAboutAuthor": true
+    "showDownloadFreeChapter": true,
+    "showAboutAuthor": false
   },
   "seo": {
-    "title": "Livro Chapada do Corisco por Alisson Carvalho",
-    "description": "Um remador solitário e a tragédia que maculou a história da vila de pescadores",
+    "title": "The Tale of Survival",
+    "description": "A solitary rower and the tragedy that marred the history of the fishing village",
     "canonical": "https://www.livrochapadadocorisco.com",
-    "locale": "pt_BR",
-    "image": "/og_image_800_600_2.png"
+    "locale": "en_US",
+    "image": "/cover.webp"
   },
   "theme": {
     "color": "#f59e0b"
   },
   "author": {
-    "name": "Alisson Carvalho",
-    "email": "alissonmssc@gmail.com",
-    "location": "Teresina, Piauí",
-    "twitterUrl": "https://twitter.com/rascunholiquido",
-    "instagramUrl": "https://www.instagram.com/rascunhosliquidos/",
-    "linkedinUrl": "https://www.linkedin.com/in/alisson-carvalho-854bb0131/"
+    "name": "Jane Phuong Nguyen",
+    "email": "",
+    "location": "Falls Church, Virginia",
+    "twitterUrl": "#",
+    "instagramUrl": "#",
+    "linkedinUrl": "https://www.linkedin.com/in/janebvogel/"
   },
   "book": {
-    "title": "Chapada do Corisco",
-    "isbn": "978-65-89313-54-0",
-    "releaseDate": "2022-03-28",
-    "price": "34.9",
-    "currency": "BRL",
+    "title": "The Tale of Survival",
+    "isbn": "979-8-89663-267-2",
+    "releaseDate": "2024-12-17",
+    "price": "18.99",
+    "currency": "USD",
     "buyPhysicalUrl": "https://www.arteimpressaeditora.com.br/product-page/chapada-do-corisco-alisson-carvalho",
     "buyDigitalUrl": "https://www.amazon.com.br/Chapada-do-Corisco-Alisson-Carvalho-ebook/dp/B09WTD7RW9/",
     "buyAudiobookUrl": "#"
@@ -39,42 +39,52 @@
     "priceLeft": {
       "title": "Audiobook",
       "amount": {
-        "decimal": 14,
-        "cents": 95
+        "decimal": 0,
+        "cents": 0
       },
-      "details": ["3+ Horas", "Formato MP3"],
+      "details": [
+        "Comming Soon"
+      ],
       "button": {
-        "label": "Em gravação",
+        "label": "In recording",
         "url": "#"
       }
     },
     "priceMain": {
-      "title": "Livro físico",
+      "title": "Amazon",
       "amount": {
-        "decimal": 34,
-        "cents": 90
+        "decimal": 18,
+        "cents": 99
       },
-      "details": ["164 Páginas", "Capa fosca", "Papel creme"],
+      "details": [
+        "$8.49 (Kindle)",
+        "$14.99 (Paperback)",
+        "$18.99 (Hardcover)"
+      ],
       "button": {
-        "label": "Compre na Arte Impressa",
-        "url": "https://www.arteimpressaeditora.com.br/product-page/chapada-do-corisco-alisson-carvalho"
+        "label": "Buy at Amazon",
+        "url": "https://www.amazon.com/TALE-SURVIVAL-Jane-Phuong-Nguyen-ebook/dp/B0DQXCBXN7?dib=eyJ2IjoiMSJ9.n_BqF8kh5PqAPCYYA78hhQ.6f71k4V29CK_dtz9rRF-BWxaEgVghH4qoH0AtI8KLZ0&dib_tag=se&keywords=The+Tale+of+Survival+Jane+Phuong+Nguyen&qid=1734977196&sr=8-1"
       },
       "tagTitle": {
-        "title": "Mais Popular",
+        "title": "Most Popular",
         "cssClass": "text-book-gray bg-book-theme"
       }
     },
     "priceRight": {
-      "title": "E-book",
+      "title": "Barnes & Noble",
       "amount": {
-        "decimal": 13,
+        "decimal": 18,
         "cents": 99
       },
       "previousAmount": "",
-      "details": ["164 Páginas", "Formato MOBI (Amazon)"],
+      "details": [
+        "$9.99 (eBook)",
+        "$14.99 (Paperback)",
+        "$18.99 (Hardcover)"
+      ],
       "button": {
-        "label": "Compre na Amazon",
-        "url": "https://www.amazon.com.br/Chapada-do-Corisco-Alisson-Carvalho-ebook/dp/B09WTD7RW9/"
+        "label": "Buy at Barnes & Noble",
+        "url": "https://www.barnesandnoble.com/w/the-tale-of-survival-jane-phuong-nguyen/1146710776?ean=9798896632672#"
       }
     }
   }

@@ -1,9 +1,9 @@
 ---
-import Twitter from './icons/Twitter.astro';
-import Github from './icons/Github.astro';
-import Linkedin from './icons/Linkedin.astro';
-import Medium from './icons/Medium.astro';
-import { Image } from 'astro:assets';
+import Twitter from "./icons/Twitter.astro";
+import Github from "./icons/Github.astro";
+import Linkedin from "./icons/Linkedin.astro";
+import Medium from "./icons/Medium.astro";
+import { Image } from "astro:assets";
 
 interface InterviewCompany {
   name: string;
@@ -24,62 +24,62 @@ interface Interviews {
 
 const interviews: Array<Interviews> = [
   {
-    imageUrl: '/auryo.png',
-    name: 'Auryo Jota',
+    imageUrl: "/auryo.png",
+    name: "Auryo Jota",
     company: {
-      name: 'Escritor e Redator',
-      url: '',
+      name: "Writer and Editor",
+      url: "",
     },
     summary:
-      'Desde o título, a obra é carregada de referências. A região de Teresina, a capital do Piauí, também é conhecida como Chapada do Corisco devido às fortes trovoadas e constantes raios que caem durante as tempestades... A preocupação com questões sociais é um ponto central na obra. Desigualdade, preconceito, pessoas invisibilizadas (se ninguém vê, elas não existem, não incomodam), a normalização da violência sofrida por determinados corpos.',
-    location: 'Teresina, Piauí',
-    twitterUrl: 'https://twitter.com/auryo_j',
-    mediumUrl: 'https://medium.com/@auryoj',
+      "From the title, the work is full of references. The region of Teresina, the capital of Piauí, is also known as Chapada do Corisco due to the strong thunderstorms and constant lightning strikes during storms... Concern with social issues is a central point in the work. Inequality, prejudice, invisible people (if no one sees them, they do not exist, they do not bother), the normalization of violence suffered by certain bodies.",
+    location: "Teresina, Piauí",
+    twitterUrl: "https://twitter.com/auryo_j",
+    // mediumUrl: "https://medium.com/@auryoj",
   },
 ];
 ---
 
-<div class='bg-white'>
-  <div class='max-w-screen-xl mx-auto pt-16 pb-4 px-4'>
-    <h2 class='text-3xl leading-9 font-extrabold text-gray-900'>
-      Veja a opinião de quem já leu ...
+<div class="bg-white">
+  <div class="max-w-screen-xl mx-auto pt-16 pb-4 px-4">
+    <h2 class="text-3xl leading-9 font-extrabold text-gray-900">
+      See the opinion of those who have already read ...
     </h2>
-    <div class='mt-6 pt-10'>
+    <div class="mt-6 pt-10">
       {
         interviews.map((interview) => (
-          <div class='flex-none sm:flex mb-12'>
+          <div class="flex-none sm:flex mb-12">
             <Image
-              class='w-40 h-40 rounded-full mr-8'
+              class="w-40 h-40 rounded-full mr-8"
               src={interview.imageUrl}
               alt={interview.name}
               width={160}
               height={160}
             />
-            <div class='text-sm'>
-              <p class='text-2xl font-semibold text-gray-900'>
+            <div class="text-sm">
+              <p class="text-2xl font-semibold text-gray-900">
                 {interview.name}
               </p>
-              <p class='text-xl'>
+              <p class="text-xl">
                 <a
-                  class='underline text-book-gray hover:bg-book-yellow transition ease-in-out duration-300'
+                  class="underline text-book-gray hover:bg-book-yellow transition ease-in-out duration-300"
                   href={interview.company.url}
-                  target='_blank'
+                  target="_blank"
                 >
                   {interview.company.name}
                 </a>
               </p>
-              <p class='text-base text-gray-600 mb-1 font-body'>
+              <p class="text-base text-gray-600 mb-1 font-body">
                 {interview.summary}
               </p>
-              <p class='text-sm italic text-gray-500  font-body'>
+              <p class="text-sm italic text-gray-500  font-body">
                 {interview.location}
               </p>
-              <div class='flex flex-row my-2'>
+              <div class="flex flex-row my-2">
                 {interview.githubUrl && (
                   <a
-                    title='Github link'
+                    title="Github link"
                     href={interview.githubUrl}
-                    target='_blank'
+                    target="_blank"
                   >
                     <Github />
                   </a>
@@ -87,9 +87,9 @@ const interviews: Array<Interviews> = [
 
                 {interview.twitterUrl && (
                   <a
-                    title='Twitter link'
+                    title="Twitter link"
                     href={interview.twitterUrl}
-                    target='_blank'
+                    target="_blank"
                   >
                     <Twitter />
                   </a>
@@ -97,9 +97,9 @@ const interviews: Array<Interviews> = [
 
                 {interview.linkedinUrl && (
                   <a
-                    title='Linkedin link'
+                    title="Linkedin link"
                     href={interview.linkedinUrl}
-                    target='_blank'
+                    target="_blank"
                   >
                     <Linkedin />
                   </a>
@@ -107,9 +107,9 @@ const interviews: Array<Interviews> = [
 
                 {interview.mediumUrl && (
                   <a
-                    title='Medium link'
+                    title="Medium link"
                     href={interview.mediumUrl}
-                    target='_blank'
+                    target="_blank"
                   >
                     <Medium />
                   </a>
