@@ -1,0 +1,25 @@
+/* Example global styles */
+body {
+  margin: 0;
+  font-family: 'PT Serif', serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+a {
+  color: #007acc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: normal;
+}
+
+p {
+  margin: 0 0 1em;
+}

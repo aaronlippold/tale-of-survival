@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import lightGallery from "lightgallery";
+import lgThumbnail from "lightgallery/plugins/thumbnail";
+import lgZoom from "lightgallery/plugins/zoom";
+
+const images = import.meta.glob("/public/boat-*.webp");
+
+const imagePaths = Object.keys(images).map((path) => ({
+  url: path.replace("/public", ""),
+  alt: `Boat ${path?.split("/").pop()?.split("-")[1]?.split(".")[0] ?? "unknown"}`,
+}));
+---
+
+<Layout title="Boat Image Gallery">
+  <h1 class="text-2xl font-bold mb-4">Boat Image Gallery</h1>
+  <div id="lightgallery" class="flex flex-wrap gap-4">
+    {
+      imagePaths.map((image, index) => (
+        <a href={image.url} data-lg-size="1600-2400" key={index}>
+          <Image
+            src={image.url}
+            alt={image.alt}
+            width={200}
+            height={150}
+            sizes="(max-width: 600px) 200px"
+            class="w-48 h-auto border border-gray-300 p-2 bg-white"
+          />
+        </a>
+      ))
+    }
+  </div>
+  <script is:inline define:vars={{ lightGallery, lgThumbnail, lgZoom }}>
+    document.addEventListener("DOMContentLoaded", () => {
+      const galleryElement = document.getElementById("lightgallery");
+      if (galleryElement) {
+        lightGallery(galleryElement, {
+          plugins: [lgThumbnail, lgZoom],
+          speed: 500,
+        });
+      }
+    });
+  </script>
+</Layout>
