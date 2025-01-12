@@ -12,6 +12,13 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+[[headers]]
+  for = "/_astro/partytown/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Service-Worker-Allowed = "/"
+    Content-Type = "application/javascript"
+
 # Redirects configuration (example)
 # [[redirects]]
   # from = "/old-path"
