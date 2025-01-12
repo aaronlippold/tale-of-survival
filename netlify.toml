@@ -27,13 +27,7 @@
 # Environment variables (if needed)
 [build.environment]
   NODE_ENV = "production"
-  NODE_VERSION = "16"
+  NODE_VERSION = "18"
 
 [[plugins]]
   package = "@netlify/plugin-sitemap"
-
-#[[plugins]]
-#  package = "netlify-plugin-robots"
-#  [plugins.inputs]
-#    allow = ["/"]
-#    disallow = ["/_astro/*"]
