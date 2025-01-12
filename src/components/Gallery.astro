@@ -1,8 +1,5 @@
 ---
 import GalleryImage from "./GalleryImage.astro";
-import "lightgallery/css/lightgallery.css";
-import "lightgallery/css/lg-zoom.css";
-import "lightgallery/css/lg-thumbnail.css";
 
 interface Props {
   images: Array<{
@@ -14,23 +11,73 @@ interface Props {
 const { images } = Astro.props;
 ---
 
-<div id="lightgallery" class="flex flex-wrap gap-4">
-  {images.map((image) => <GalleryImage {...image} />)}
+<div class="gallery-container">
+  <wa-carousel
+    navigation
+    pagination
+    loop
+    class="w-full max-w-6xl mx-auto gallery-carousel"
+    style="--wa-carousel-aspect-ratio: 16/9;"
+  >
+    {images.map((image) => <GalleryImage {...image} />)}
+  </wa-carousel>
+
+  <div class="flex justify-center gap-4 mt-4">
+    <wa-button
+      variant="outline"
+      onclick="document.querySelector('wa-carousel').prev()"
+    >
+      <wa-icon name="chevron-left"></wa-icon>
+      Previous
+    </wa-button>
+    <wa-button
+      variant="outline"
+      onclick="document.querySelector('wa-carousel').next()"
+    >
+      Next
+      <wa-icon name="chevron-right"></wa-icon>
+    </wa-button>
+  </div>
 </div>
 
 <script>
-  // These imports are needed for client-side functionality
-  import lightGallery from "lightgallery";
-  import lgThumbnail from "lightgallery/plugins/thumbnail";
-  import lgZoom from "lightgallery/plugins/zoom";
-
   document.addEventListener("astro:page-load", () => {
-    const galleryElement = document.getElementById("lightgallery");
-    if (galleryElement) {
-      lightGallery(galleryElement, {
-        plugins: [lgThumbnail, lgZoom],
-        speed: 500,
-      });
-    }
+    const carousel = document.querySelector("wa-carousel");
+
+    // Add keyboard navigation
+    document.addEventListener("keydown", (e) => {
+      if (!carousel) return;
+
+      switch (e.key) {
+        case "ArrowLeft":
+          carousel.prev();
+          break;
+        case "ArrowRight":
+          carousel.next();
+          break;
+      }
+    });
   });
 </script>
+
+<style>
+  .gallery-container {
+    --wa-carousel-slide-gap: 1rem;
+    --wa-carousel-navigation-color: var(--book-theme-color, #ff9500);
+    --wa-carousel-pagination-color: var(--book-theme-color, #ff9500);
+    margin: 2rem auto;
+  }
+
+  wa-carousel {
+    background: #01060f;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  wa-button {
+    --wa-button-color: var(--book-theme-color, #ff9500);
+  }
+</style>

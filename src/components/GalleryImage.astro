@@ -1,6 +1,4 @@
 ---
-import { Image } from "astro:assets";
-
 interface Props {
   url: string;
   alt: string;
@@ -9,13 +7,28 @@ interface Props {
 const { url, alt } = Astro.props;
 ---
 
-<a href={url} data-lg-size="1600-2400">
-  <Image
-    src={url}
-    alt={alt}
-    width={200}
-    height={150}
-    sizes="(max-width: 600px) 200px"
-    class="w-48 h-auto border border-gray-300 p-2 bg-white"
-  />
-</a>
+<wa-carousel-item fit>
+  <figure class="w-full h-full relative">
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"
+    >
+    </div>
+    <img
+      src={url}
+      alt={alt}
+      class="w-full h-full object-contain bg-[#01060f]"
+      loading="lazy"
+    />
+    <figcaption
+      class="text-center p-3 text-white absolute bottom-0 w-full z-10 text-lg"
+    >
+      {alt}
+    </figcaption>
+  </figure>
+</wa-carousel-item>
+
+<style>
+  img {
+    max-height: calc(100vh - 200px);
+  }
+</style>
