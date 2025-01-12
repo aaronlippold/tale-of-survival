@@ -23,3 +23,17 @@ h1, h2, h3, h4, h5, h6 {
 p {
   margin: 0 0 1em;
 }
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gallery img {
+  width: 200px;
+  height: auto;
+  border: 1px solid #ccc;
+  padding: 5px;
+  background-color: #fff;
+}

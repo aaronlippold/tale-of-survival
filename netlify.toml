@@ -1,6 +1,6 @@
 [build]
-  command = "pnpm run build"
   publish = "dist"
+  command = "npm run build"
 
 [functions]
   # If you have functions, specify the directory here
@@ -19,29 +19,21 @@
   # status = 301
   # force = true
 
+[[redirects]]
+  from = "/~partytown/*"
+  to = "/_astro/partytown/:splat"
+  status = 200
+
 # Environment variables (if needed)
 [build.environment]
   NODE_ENV = "production"
+  NODE_VERSION = "16"
 
 [[plugins]]
-  package = "@netlify/plugin-lighthouse"
+  package = "@netlify/plugin-sitemap"
 
-  # Set minimum thresholds for each report area
-  [plugins.inputs.thresholds]
-    performance = 0.9
-
-  # to audit a path other than /
-  # route1 audit will use the top level thresholds
-  #[[plugins.inputs.audits]]
-  #  path = "route1"
-
-  # you can optionally specify an output_path per audit, relative to the path, where HTML report output will be saved
-    output_path = "reports/route1.html"
-
-  # to audit a specific absolute url
-  [[plugins.inputs.audits]]
-    url = "https://tale-of-survival.netlify.app"
-
-    # you can specify thresholds per audit
-    [plugins.inputs.audits.thresholds]
-      performance = 0.8
+#[[plugins]]
+#  package = "netlify-plugin-robots"
+#  [plugins.inputs]
+#    allow = ["/"]
+#    disallow = ["/_astro/*"]

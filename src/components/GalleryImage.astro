@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  url: string;
+  alt: string;
+}
+
+const { url, alt } = Astro.props;
+---
+
+<a href={url} data-lg-size="1600-2400">
+  <Image
+    src={url}
+    alt={alt}
+    width={200}
+    height={150}
+    sizes="(max-width: 600px) 200px"
+    class="w-48 h-auto border border-gray-300 p-2 bg-white"
+  />
+</a>
