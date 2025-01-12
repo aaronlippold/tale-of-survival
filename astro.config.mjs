@@ -12,7 +12,8 @@ export default defineConfig({
     sitemap(),
     partytown({
       config: {
-        debug: true,
+        debug: false, // Change to false to reduce console noise
+        forward: ['dataLayer.push'],
         resolveUrl: (url) => {
           const pathname = new URL(url).pathname;
           if (pathname.includes('/~partytown/')) {
@@ -20,10 +21,19 @@ export default defineConfig({
           }
           return url;
         },
+        storage: {
+          enabled: true,
+          allowedOrigins: ['https://tale-of-survival.netlify.app']
+        },
+        // Add performance configuration
+        performance: {
+          enabled: true,
+          navigateFallbackDenylist: [/^\/[\w/%-]+\/?$/],
+        }
       },
     }),
     robotsTxt()
   ],
   output: 'server',
-  adapter: netlify(), // Changed to Netlify adapter
+  adapter: netlify(),
 });

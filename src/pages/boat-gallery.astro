@@ -9,7 +9,9 @@ const imagePaths = Object.keys(images).map((path) => ({
 }));
 ---
 
-<Layout title="Boat Image Gallery">
-  <h1 class="text-2xl font-bold mb-4">Boat Image Gallery</h1>
-  <Gallery images={imagePaths} />
+<Layout title="Boat Gallery">
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold mb-8 text-center">Boat Gallery</h1>
+    <Gallery images={imagePaths} />
+  </div>
 </Layout>

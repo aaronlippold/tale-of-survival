@@ -5,8 +5,8 @@ export interface Props {
 
 const { title } = Astro.props;
 import "@fontsource/pt-serif";
-import "../styles/global.css"; // Ensure global styles are imported
-import Footer from "../components/Footer.astro"; // Import the Footer component
+import "../styles/global.css"; // This is the correct way to import
+import Footer from "../components/Footer.astro";
 
 import { seo, author, book } from "../config.json";
 ---
@@ -48,6 +48,16 @@ import { seo, author, book } from "../config.json";
     <meta name="twitter:title" content={seo.title} />
     <meta name="twitter:description" content={seo.description} />
 
+    <!-- Web Awesome Alpha CDN -->
+    <link
+      rel="stylesheet"
+      href="https://early.webawesome.com/webawesome@3.0.0-alpha.8/dist/styles/themes/default.css"
+    />
+    <script
+      type="module"
+      src="https://early.webawesome.com/webawesome@3.0.0-alpha.8/dist/webawesome.loader.js"
+    ></script>
+
     <title>{seo.title}</title>
 
     <!-- Google tag (gtag.js) -->
@@ -73,8 +83,6 @@ import { seo, author, book } from "../config.json";
       // 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
       // })(window,document,'script','dataLayer','YOUR-CONTAINER-ID');
     </script>
-    <link rel="stylesheet" href="/src/styles/global.css" />
-    <!-- Ensure global styles are linked -->
   </head>
   <body>
     <header class="bg-book-gray text-white p-4">
