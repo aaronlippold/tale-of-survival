@@ -23,12 +23,20 @@ export default defineConfig({
         },
         storage: {
           enabled: true,
-          allowedOrigins: ['https://tale-of-survival.netlify.app']
+          allowedOrigins: [
+            'https://tale-of-survival.netlify.app',
+            /^https:\/\/deploy-preview-\d+--tale-of-survival\.netlify\.app$/
+          ]
         },
         // Add performance configuration
         performance: {
           enabled: true,
           navigateFallbackDenylist: [/^\/[\w/%-]+\/?$/],
+        },
+        // Disable service worker in dev
+        serviceWorker: {
+          path: "/_astro/partytown/",
+          enabled: import.meta.env.PROD
         }
       },
     }),
