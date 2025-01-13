@@ -84,10 +84,23 @@ const { images } = Astro.props;
 <style is:global>
   .swiper {
     aspect-ratio: auto;
-    height: min(calc(100vh - 400px), 600px);
-    min-height: 300px;
+    height: min(calc(100vh - 250px), 450px);
+    min-height: 250px;
     max-height: 450px;
   }
+
+  @media (max-width: 768px) {
+    .swiper {
+      height: calc(100vh - 300px);
+      min-height: 200px;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      padding: 1.5rem !important;
+      transform: scale(0.6) !important;
+    }
+  }
+
   .swiper-button-next,
   .swiper-button-prev {
     color: #ff9500 !important;

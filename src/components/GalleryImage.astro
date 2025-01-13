@@ -9,7 +9,9 @@ interface Props {
 const { url, alt } = Astro.props;
 ---
 
-<figure class="relative h-full w-full flex items-center justify-center p-2">
+<figure
+  class="relative h-full w-full flex items-center justify-center p-2 sm:p-4"
+>
   <div
     class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"
   >
@@ -19,11 +21,11 @@ const { url, alt } = Astro.props;
     alt={alt}
     width={1280}
     height={720}
-    class="max-h-[500px] w-auto object-contain rounded-md"
+    class="h-full w-auto max-h-full object-contain rounded-md"
     loading="eager"
   />
   <figcaption
-    class="absolute bottom-2 z-20 w-full px-4 py-2 text-center text-lg text-white bg-black/60 backdrop-blur-sm"
+    class="absolute bottom-2 z-20 w-full px-4 py-2 text-center text-base sm:text-lg text-white bg-black/60 backdrop-blur-sm"
   >
     {alt}
   </figcaption>
