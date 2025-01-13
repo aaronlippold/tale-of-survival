@@ -1,11 +1,14 @@
 ---
 import { Image } from "astro:assets";
-
+import coverBackImage from "../assets/images/cover-back.webp";
 import { book } from "../config.json";
 ---
 
-<div class="bg-book-gray relative overflow-hidden">
-  <div class="max-w-screen-xl mx-auto pt-16 pb-8 text-lg">
+<div class="bg-gray-800">
+  <div class="max-w-screen-xl mx-auto py-16 relative">
+    <h2 class="text-4xl md:text-5xl mb-8 font-semibold text-white px-4">
+      Journey Through <span class="text-yellow-400">the Chapters</span>
+    </h2>
     <div class="hidden sm:block sm:absolute sm:inset-0">
       <svg
         class="absolute bottom-0 right-0 transform translate-x-1/2 mb-48 text-gray-700 lg:top-0 lg:mt-28 lg:mb-0 xl:transform-none xl:translate-x-0"
@@ -29,83 +32,82 @@ import { book } from "../config.json";
           fill="url(#eab71dd9-9d7a-47bd-8044-256344ee00d0)"></rect>
       </svg>
     </div><div class="relative z-10">
-      <h2 class="text-5xl mb-10 font-semibold text-gray-50 px-4">
-        Journey Through <span class="text-book-theme pl-4">the Chapters</span>
-      </h2><div class="flex-none sm:flex">
+      <div class="flex-none sm:flex">
         <div class="text-base sm:flex-1 px-4">
-          <ol class="text-gray-400 ml-4 mb-4 font-body">
-            <li class="text-lg mb-2 text-gray-100 font-semibold">Dedication</li>
-            <li class="text-lg mb-2 text-gray-100 font-semibold">
+          <ol class="text-gray-300 ml-4 mb-4 font-body">
+            <li class="text-lg mb-2 text-white font-semibold">Dedication</li>
+            <li class="text-lg mb-2 text-white font-semibold">
               Acknowledgment
             </li>
-            <li class="text-lg mb-2 text-gray-100 font-semibold">
+            <li class="text-lg mb-2 text-white font-semibold">
               About the Author
             </li>
-            <li class="text-lg mb-2 text-gray-100 font-semibold">Preface</li>
-            <li class="text-lg mb-2 text-gray-100 font-semibold">
+            <li class="text-lg mb-2 text-white font-semibold">Preface</li>
+            <li class="text-lg mb-2 text-white font-semibold">
               Chapter 1: The Farthest I Can Go Back
             </li>
-            <li class="text-lg mb-2 text-gray-100 font-semibold">
+            <li class="text-lg mb-2 text-white font-semibold">
               Chapter 2: The Fall of Saigon
             </li>
-            <li class="text-lg mb-2 text-gray-100 font-semibold">
+            <li class="text-lg mb-2 text-white font-semibold">
               Chapter 3: Adjusting to the New Reality
             </li>
-            <li class="text-lg mb-2 text-gray-100 font-semibold">
+            <li class="text-lg mb-2 text-white font-semibold">
               Chapter 4: The Harsh Realities of Communist Control
             </li>
-            <li class="text-lg mb-2 text-gray-100 font-semibold">
+            <li class="text-lg mb-2 text-white font-semibold">
               Chapter 5: Planning Our Escape
             </li>
-            <li class="text-lg mb-2 text-gray-100 font-semibold">
+            <li class="text-lg mb-2 text-white font-semibold">
               Chapter 6: The Plan to Escape
             </li>
-            <li class="text-lg mb-2 text-gray-100 font-semibold">
+            <li class="text-lg mb-2 text-white font-semibold">
               Chapter 7: The Journey Begins
             </li>
-            <li class="text-lg mb-2 text-gray-100 font-semibold">
+            <li class="text-lg mb-2 text-white font-semibold">
               Chapter 8: Life in the Refugee Camp
             </li>
-            <li class="text-lg mb-2 text-gray-100 font-semibold">
+            <li class="text-lg mb-2 text-white font-semibold">
               Chapter 9: Our New Beginning
             </li>
-            <li class="text-lg mb-2 text-gray-100 font-semibold">
+            <li class="text-lg mb-2 text-white font-semibold">
               Chapter 10: Facing New Challenges
             </li>
-            <li class="text-lg mb-2 text-gray-100 font-semibold">
+            <li class="text-lg mb-2 text-white font-semibold">
               Chapter 11: Struggles and Successes
             </li>
-            <li class="text-lg mb-2 text-gray-100 font-semibold">
+            <li class="text-lg mb-2 text-white font-semibold">
               Chapter 12: Learning and Growing in a New Land
             </li>
-            <li class="text-lg mb-2 text-gray-100 font-semibold">
+            <li class="text-lg mb-2 text-white font-semibold">
               Chapter 13: Meeting and Marrying My Ex-Husband
             </li>
-            <li class="text-lg mb-2 text-gray-100 font-semibold">
+            <li class="text-lg mb-2 text-white font-semibold">
               Chapter 14: Marriage and Challenges
             </li>
-            <li class="text-lg mb-2 text-gray-100 font-semibold">
+            <li class="text-lg mb-2 text-white font-semibold">
               Chapter 15: Realizations and Decisions
             </li>
-            <li class="text-lg mb-2 text-gray-100 font-semibold">
+            <li class="text-lg mb-2 text-white font-semibold">
               Chapter 16: The Final Decision
             </li>
-            <li class="text-lg mb-2 text-gray-100 font-semibold">
+            <li class="text-lg mb-2 text-white font-semibold">
               Chapter 17: The Challenges of Single Motherhood
             </li>
-            <li class="text-lg mb-2 text-gray-100 font-semibold">
+            <li class="text-lg mb-2 text-white font-semibold">
               Chapter 18: Navigating Through the Pandemic
             </li>
           </ol>
-        </div><div class="sm:flex-1 px-4">
+        </div><div class="sm:flex-1 px-4 flex justify-center items-center">
           <Image
-            class="rounded-md relative z-10"
-            src={"/cover-back.webp"}
+            class="rounded-lg shadow-lg max-w-md w-full transform transition-all duration-300 hover:scale-105"
+            src={coverBackImage}
             width={400}
             height={500}
             alt={book.title}
-            format={"avif"}
-            loading={"eager"}
+            format="webp"
+            loading="eager"
+            quality={90}
           />
         </div>
       </div>

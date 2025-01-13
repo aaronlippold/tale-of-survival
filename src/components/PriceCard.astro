@@ -1,116 +1,109 @@
 ---
-import Checkmark from "./icons/Checkmark.astro";
+interface Props {
+  title: string;
+  amount: {
+    decimal: string | number;
+    cents: string | number;
+  };
+  previousAmount?: string; // Make previousAmount optional
+  details: string[];
+  button: {
+    label: string;
+    url: string;
+  };
+  position: "left" | "main" | "right";
+  mostPopular?: boolean;
+}
+
 const {
   title,
   amount,
   details,
   button,
-  previousAmount,
-  mostPopular,
   position,
+  mostPopular = false,
+  previousAmount,
 } = Astro.props;
 
 const cardClasses = {
-  left: "h-full",
-  main: "rounded-lg",
-  right: "h-full",
+  left: "h-full backdrop-blur-sm bg-white/90",
+  main: "rounded-lg bg-white",
+  right: "h-full backdrop-blur-sm bg-white/90",
 };
+
+import Checkmark from "./icons/Checkmark.astro";
 ---
 
-<div class={`flex flex-col ${cardClasses[position] || ""}`}>
-  {
-    mostPopular && (
-      <>
-        <div
-          class="pointer-events-none absolute inset-0 rounded-lg border-2 border-gray-200"
-          aria-hidden="true"
-        />
-        <div class="absolute inset-x-0 top-0 transform translate-y-px z-20">
-          <div class="flex justify-center transform -translate-y-1/2">
-            <span class="inline-flex rounded-full text-book-gray bg-book-theme px-4 py-1 text-sm font-semibold tracking-wider uppercase">
+<div class="flex-1 flex flex-col h-full">
+  <div class="bg-white/95 px-6 py-10 rounded-t-lg">
+    {
+      mostPopular && (
+        <div class="absolute inset-x-0 top-0 transform -translate-y-1/2">
+          <div class="flex justify-center">
+            <span class="inline-flex rounded-full bg-yellow-400 px-4 py-1 text-sm font-semibold text-gray-800 uppercase">
               Most Popular
             </span>
           </div>
         </div>
-      </>
-    )
-  }
-  <div class="flex-1 flex flex-col">
-    <div
-      class={`bg-white px-6 ${position === "main" ? "pt-12 pb-10 rounded-t-lg" : "py-10"}`}
-    >
-      <div>
-        <h3
-          class={`text-center text-book-gray ${
-            position === "main"
-              ? "text-3xl font-semibold sm:-mx-6"
-              : "text-2xl font-medium"
-          }`}
-          id={position}
+      )
+    }
+    <div>
+      <h3 class="text-center text-2xl font-medium text-gray-800" id={position}>
+        {title}
+      </h3>
+      <div class="mt-4 flex items-center justify-center">
+        <span
+          class="px-1 flex items-start text-6xl tracking-tight text-gray-800"
         >
-          {title}
-        </h3>
-        <div class="mt-4 flex items-center justify-center">
-          <span
-            class="px-1 flex items-start text-6xl tracking-tight text-book-gray"
+          <span class="font-extrabold">${amount.decimal}</span>
+          <span class="text-2xl font-medium text-gray-600">.{amount.cents}</span
           >
-            <span class="font-extrabold">${amount.decimal}</span>
-            <span
-              class={`text-2xl leading-8 font-medium text-gray-500 ${position === "right" ? "text-xl" : ""}`}
-            >
-              .{amount.cents}
-            </span>
-          </span>
-        </div>
-        {
-          previousAmount && (
-            <div class="flex items-center justify-center">
-              <span class="line-through font-light text-gray-500">
-                {previousAmount}
-              </span>
-            </div>
-          )
-        }
+        </span>
       </div>
     </div>
-    <div
-      class={`
-      flex-1 flex flex-col justify-between border-t-2 border-gray-100 bg-gray-50
-      ${position === "main" ? "pt-10 pb-8 px-6 rounded-b-lg sm:px-10 sm:py-10" : "p-6 sm:p-10 lg:p-6 xl:p-10"}
-    `}
-    >
-      <ul class="space-y-4">
-        {
-          details.map((item) => (
-            <li class="flex items-start">
-              <div class="flex-shrink-0">
-                <Checkmark />
-              </div>
-              <p class="ml-3 text-base font-medium text-gray-500">{item}</p>
-            </li>
-          ))
-        }
-      </ul>
-      <div class={position === "main" ? "mt-10" : "mt-8"}>
-        <div class="rounded-lg shadow-md">
-          <a
-            target="blank"
-            href={button.url}
-            class={`
-              block w-full text-center rounded-lg border border-transparent 
-              px-6 py-4 font-semibold text-book-gray
-              ${position === "main" ? "text-xl" : "text-lg"}
-              ${
-                position === "main" || position === "right"
-                  ? "bg-book-theme hover:bg-yellow-200"
-                  : "bg-slate-300 hover:bg-slate-500"
-              }
-              focus:outline-none transition duration-300 ease-in-out
-            `}
-          >
-            {button.label}
-          </a>
-        </div>
+  </div>
+
+  <div
+    class="flex-1 flex flex-col justify-between border-t border-gray-200 p-6 bg-gray-50/95 rounded-b-lg"
+  >
+    <ul class="space-y-4">
+      {
+        details.map((item) => (
+          <li class="flex items-start">
+            <div class="flex-shrink-0">
+              <svg
+                class="h-6 w-6 text-yellow-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            </div>
+            <p class="ml-3 text-base font-medium text-gray-600">{item}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="mt-8">
+      <div class="rounded-lg shadow-md">
+        <a
+          target="blank"
+          href={button.url}
+          class:list={[
+            "block w-full text-center rounded-lg px-6 py-4 text-lg leading-6 font-semibold transition duration-300 ease-in-out",
+            position === "main"
+              ? "bg-yellow-400 text-gray-800 hover:bg-yellow-500"
+              : "bg-gray-200 text-gray-800 hover:bg-gray-300",
+          ]}
+        >
+          {button.label}
+        </a>
       </div>
     </div>
   </div>

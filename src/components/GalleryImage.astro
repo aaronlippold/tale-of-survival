@@ -1,34 +1,30 @@
 ---
+import { Image } from "astro:assets";
+
 interface Props {
-  url: string;
+  url: ImageMetadata;
   alt: string;
 }
 
 const { url, alt } = Astro.props;
 ---
 
-<wa-carousel-item fit>
-  <figure class="w-full h-full relative">
-    <div
-      class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"
-    >
-    </div>
-    <img
-      src={url}
-      alt={alt}
-      class="w-full h-full object-contain bg-[#01060f]"
-      loading="lazy"
-    />
-    <figcaption
-      class="text-center p-3 text-white absolute bottom-0 w-full z-10 text-lg"
-    >
-      {alt}
-    </figcaption>
-  </figure>
-</wa-carousel-item>
-
-<style>
-  img {
-    max-height: calc(100vh - 200px);
-  }
-</style>
+<figure class="relative h-full w-full flex items-center justify-center p-2">
+  <div
+    class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"
+  >
+  </div>
+  <Image
+    src={url}
+    alt={alt}
+    width={1280}
+    height={720}
+    class="max-h-[500px] w-auto object-contain rounded-md"
+    loading="eager"
+  />
+  <figcaption
+    class="absolute bottom-2 z-20 w-full px-4 py-2 text-center text-lg text-white bg-black/60 backdrop-blur-sm"
+  >
+    {alt}
+  </figcaption>
+</figure>

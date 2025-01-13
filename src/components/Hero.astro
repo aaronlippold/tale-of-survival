@@ -1,24 +1,26 @@
 ---
 import { Image } from "astro:assets";
 import { showBuyAudiobookButton, showAmazonTag, book } from "../config.json";
+import amazonLogo from "../assets/images/amazon.svg";
+import bookCover from "../assets/images/cover.webp";
 ---
 
-<main
-  class="mx-auto max-w-screen-xl px-4 mb-8 mt-12 sm:mt-12 sm:mb-12 sm:px-6 md:mt-32 md:mb-20 xl:mt-23 xl:mb-24"
->
+<main class="max-w-screen-xl mx-auto px-4 py-12 md:py-16 lg:py-24">
   <div class="lg:grid lg:grid-cols-12 lg:gap-8">
-    <div class="mb-12 md:max-w-1xl md:mx-auto lg:col-span-8">
+    <div class="mb-12 md:max-w-2xl md:mx-auto lg:col-span-8">
       {
         showAmazonTag && (
           <div class="text-base uppercase tracking-wide mb-4">
             <Image
               class="inline h-5 relative"
               style="top:3px"
-              src="/amazon.svg"
+              src={amazonLogo}
               alt="amazon.com"
               width={300}
               height={480}
-              loading={"eager"}
+              loading="eager"
+              format="webp"
+              quality={80}
             />{" "}
             best-seller
           </div>
@@ -64,36 +66,33 @@ import { showBuyAudiobookButton, showAmazonTag, book } from "../config.json";
         that even when things are tough, people can be brave, kind, and hopeful.
       </p>
       <div>
-        <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-          <div class="mt-3 sm:mt-0 sm:ml-3">
-            <a
-              href="https://www.amazon.com/TALE-SURVIVAL-Jane-Phuong-Nguyen-ebook/dp/B0DQXCBXN7/ref=sr_1_1?dib=eyJ2IjoiMSJ9.n_BqF8kh5PqAPCYYA78hhQ.6f71k4V29CK_dtz9rRF-BWxaEgVghH4qoH0AtI8KLZ0&dib_tag=se&keywords=The+Tale+of+Survival+Jane+Phuong+Nguyen&qid=1734977196&sr=8-1"
-              target="_blank"
-              class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 rounded-md font-semibold text-black bg-book-theme hover:bg-yellow-200 focus:outline-none transition duration-300 ease-in-out md:py-4 md:text-lg md:px-10"
-              >Buy the Book on Amazon</a
-            >
-          </div>
-          <div class="mt-3 sm:mt-0 sm:ml-3">
-            <a
-              href="https://www.barnesandnoble.com/w/the-tale-of-survival-jane-phuong-nguyen/1146710776?ean=9798896632672#"
-              target="_blank"
-              class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 rounded-md font-semibold text-black bg-book-theme hover:bg-yellow-200 focus:outline-none transition duration-300 ease-in-out md:py-4 md:text-lg md:px-10"
-              >Buy the Book at Barnes & Nobel</a
-            >
-          </div>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          <a
+            href="https://www.amazon.com/TALE-SURVIVAL-Jane-Phuong-Nguyen-ebook/dp/B0DQXCBXN7/ref=sr_1_1?dib=eyJ2IjoiMSJ9.n_BqF8kh5PqAPCYYA78hhQ.6f71k4V29CK_dtz9rRF-BWxaEgVghH4qoH0AtI8KLZ0&dib_tag=se&keywords=The+Tale+of+Survival+Jane+Phuong+Nguyen&qid=1734977196&sr=8-1"
+            target="_blank"
+            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-gray-900 bg-book-theme hover:bg-yellow-200 transition duration-300"
+          >
+            Buy the Book on Amazon
+          </a>
+          <a
+            href="https://www.barnesandnoble.com/w/the-tale-of-survival-jane-phuong-nguyen/1146710776?ean=9798896632672#"
+            target="_blank"
+            class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-gray-900 bg-book-theme hover:bg-yellow-200 transition duration-300"
+          >
+            Buy the Book at Barnes & Nobel
+          </a>
           {
             showBuyAudiobookButton && (
-              <div class="mt-3 sm:mt-0 sm:ml-3">
-                <a
-                  href="#audiobook"
-                  class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 rounded-md font-semibold text-white bg-book-gray hover:bg-gray-800 focus:outline-none transition duration-300 ease-in-out md:py-4 md:text-lg md:px-10"
-                >
-                  Buy the Audiobook
-                </a>
-              </div>
+              <a
+                href="#audiobook"
+                class="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-white bg-book-gray hover:bg-gray-800 transition duration-300"
+              >
+                Buy the Audiobook
+              </a>
             )
           }
-        </div><p class="mt-3 text-sm text-book-gray sm:mt-5 sm:text-base">
+        </div>
+        <p class="mt-4 text-sm text-book-gray sm:text-base">
           Take a peek <a
             download=""
             href="https://www.amazon.com/TALE-SURVIVAL-Jane-Phuong-Nguyen-ebook/dp/B0DQXCBXN7?dib=eyJ2IjoiMSJ9.n_BqF8kh5PqAPCYYA78hhQ.6f71k4V29CK_dtz9rRF-BWxaEgVghH4qoH0AtI8KLZ0&dib_tag=se&keywords=The+Tale+of+Survival+Jane+Phuong+Nguyen&qid=1734977196&sr=8-1&asin=B0DQXCBXN7&revisionId=e91aab83&format=3&depth=1"
@@ -102,18 +101,21 @@ import { showBuyAudiobookButton, showAmazonTag, book } from "../config.json";
           > for free.
         </p>
       </div>
-    </div><div
+    </div>
+    <div
       class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-4 lg:flex lg:items-center"
     >
-      <a class="book-container" href="#ebook"
-        ><div class="book">
+      <a class="book-container" href="#ebook">
+        <div class="book">
           <Image
-            src={"/cover.webp"}
-            width={300}
-            height={600}
+            src={bookCover}
+            width={600}
+            height={900}
             alt={book.title}
-            format={"avif"}
-            loading={"eager"}
+            format="webp"
+            loading="eager"
+            quality={90}
+            class="w-full h-auto object-cover rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105"
           />
         </div>
       </a>

@@ -4,7 +4,8 @@ import Github from "./icons/Github.astro";
 import Linkedin from "./icons/Linkedin.astro";
 import Medium from "./icons/Medium.astro";
 import { Image } from "astro:assets";
-
+import auryoImage from "../assets/images/auryo.png";
+// ...existing code...
 interface InterviewCompany {
   name: string;
   url: string;
@@ -24,7 +25,7 @@ interface Interviews {
 
 const interviews: Array<Interviews> = [
   {
-    imageUrl: "/auryo.png",
+    imageUrl: auryoImage,
     name: "Auryo Jota",
     company: {
       name: "Writer and Editor",
@@ -49,11 +50,13 @@ const interviews: Array<Interviews> = [
         interviews.map((interview) => (
           <div class="flex-none sm:flex mb-12">
             <Image
-              class="w-40 h-40 rounded-full mr-8"
+              class="w-40 h-40 rounded-full object-cover"
               src={interview.imageUrl}
               alt={interview.name}
-              width={160}
-              height={160}
+              width={320}
+              height={320}
+              format="webp"
+              quality={90}
             />
             <div class="text-sm">
               <p class="text-2xl font-semibold text-gray-900">

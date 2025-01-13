@@ -1,9 +1,10 @@
 ---
 import GalleryImage from "./GalleryImage.astro";
+import "swiper/css/bundle";
 
 interface Props {
   images: Array<{
-    url: string;
+    url: ImageMetadata;
     alt: string;
   }>;
 }
@@ -11,73 +12,91 @@ interface Props {
 const { images } = Astro.props;
 ---
 
-<div class="gallery-container">
-  <wa-carousel
-    navigation
-    pagination
-    loop
-    class="w-full max-w-6xl mx-auto gallery-carousel"
-    style="--wa-carousel-aspect-ratio: 16/9;"
+<div class="w-full">
+  <div
+    class="swiper w-full max-w-5xl mx-auto overflow-hidden rounded-lg bg-book-gray/5 shadow-lg"
   >
-    {images.map((image) => <GalleryImage {...image} />)}
-  </wa-carousel>
-
-  <div class="flex justify-center gap-4 mt-4">
-    <wa-button
-      variant="outline"
-      onclick="document.querySelector('wa-carousel').prev()"
-    >
-      <wa-icon name="chevron-left"></wa-icon>
-      Previous
-    </wa-button>
-    <wa-button
-      variant="outline"
-      onclick="document.querySelector('wa-carousel').next()"
-    >
-      Next
-      <wa-icon name="chevron-right"></wa-icon>
-    </wa-button>
+    <div class="swiper-wrapper">
+      {
+        images.map((image) => (
+          <div class="swiper-slide">
+            <GalleryImage {...image} />
+          </div>
+        ))
+      }
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
   </div>
 </div>
 
 <script>
-  document.addEventListener("astro:page-load", () => {
-    const carousel = document.querySelector("wa-carousel");
+  import Swiper from "swiper/bundle";
 
-    // Add keyboard navigation
-    document.addEventListener("keydown", (e) => {
-      if (!carousel) return;
-
-      switch (e.key) {
-        case "ArrowLeft":
-          carousel.prev();
-          break;
-        case "ArrowRight":
-          carousel.next();
-          break;
-      }
+  function initSwiper() {
+    const swiper = new Swiper(".swiper", {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 0,
+      observer: true,
+      observeParents: true,
+      touchRatio: 1.5,
+      touchAngle: 30,
+      grabCursor: true,
+      preventClicks: false,
+      preventClicksPropagation: false,
+      keyboard: {
+        enabled: true,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      // Improved touch handling
+      touchEventsTarget: "container",
+      touchStartPreventDefault: true,
+      touchStartForcePreventDefault: true,
+      threshold: 10,
+      touchMoveStopPropagation: false,
+      resistance: false,
+      allowTouchMove: true,
     });
-  });
+
+    return swiper;
+  }
+
+  // Initialize on page load
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initSwiper);
+  } else {
+    initSwiper();
+  }
+
+  // Re-initialize on view transitions
+  document.addEventListener("astro:page-load", initSwiper);
 </script>
 
-<style>
-  .gallery-container {
-    --wa-carousel-slide-gap: 1rem;
-    --wa-carousel-navigation-color: var(--book-theme-color, #ff9500);
-    --wa-carousel-pagination-color: var(--book-theme-color, #ff9500);
-    margin: 2rem auto;
+<style is:global>
+  .swiper {
+    aspect-ratio: auto;
+    height: min(calc(100vh - 400px), 600px);
+    min-height: 300px;
+    max-height: 450px;
   }
-
-  wa-carousel {
-    background: #01060f;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    box-shadow:
-      0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #ff9500 !important;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    border-radius: 50%;
+    transform: scale(0.7);
   }
-
-  wa-button {
-    --wa-button-color: var(--book-theme-color, #ff9500);
+  .swiper-pagination-bullet-active {
+    background: #ff9500 !important;
   }
 </style>

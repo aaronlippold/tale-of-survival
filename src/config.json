@@ -87,5 +87,9 @@
         "url": "https://www.barnesandnoble.com/w/the-tale-of-survival-jane-phuong-nguyen/1146710776?ean=9798896632672#"
       }
     }
+  },
+  "analytics": {
+    "enabled": false,
+    "googleAnalyticsId": "G-9FXFDTDRH4"
   }
 }
