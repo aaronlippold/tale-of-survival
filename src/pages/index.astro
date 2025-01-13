@@ -1,25 +1,23 @@
 ---
-import WhyReadThisBook from "../components/WhyReadThisBook.astro";
-import HeroSection from "../components/HeroSection.astro";
+import Hero from "../components/Hero.astro";
 import Layout from "../layouts/Layout.astro";
 import Interviews from "../components/Interviews.astro";
 import FreeChapter from "../components/FreeChapter.astro";
 import WhatsInside from "../components/WhatsInside.astro";
 import BuyPC from "../components/BuyPC.astro";
 import Buy from "../components/Buy.astro";
-import Footer from "../components/Footer.astro";
 import AudioBook from "../components/AudioBook.astro";
+import AboutTheAuthor from "../components/AboutTheAuthor.astro";
 import { sections } from "../config.json";
 import "../styles/global.css"; // Ensure global styles are imported
 ---
 
 <Layout title="Book Title">
-  <HeroSection />
-  <WhyReadThisBook />
+  <Hero />
+  <AboutTheAuthor />
   {sections.showBuyAudiobook && <AudioBook />}
   <!-- <Interviews /> -->
   {sections.showDownloadFreeChapter && <FreeChapter />}
   <WhatsInside />
   <BuyPC />
-  <!-- <Footer /> -->
 </Layout>
