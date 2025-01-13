@@ -12,9 +12,9 @@ interface Props {
 const { images } = Astro.props;
 ---
 
-<div class="w-full">
+<div class="w-full h-[calc(100vh-12rem)] sm:h-[calc(100vh-16rem)]">
   <div
-    class="swiper w-full max-w-5xl mx-auto overflow-hidden rounded-lg bg-book-gray/5 shadow-lg"
+    class="swiper h-full w-full max-w-5xl mx-auto overflow-hidden rounded-lg bg-book-gray/5 shadow-lg"
   >
     <div class="swiper-wrapper">
       {
@@ -83,21 +83,20 @@ const { images } = Astro.props;
 
 <style is:global>
   .swiper {
-    aspect-ratio: auto;
-    height: min(calc(100vh - 250px), 450px);
-    min-height: 250px;
-    max-height: 450px;
+    height: 100%;
   }
 
-  @media (max-width: 768px) {
-    .swiper {
-      height: calc(100vh - 300px);
-      min-height: 200px;
-    }
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 640px) {
     .swiper-button-next,
     .swiper-button-prev {
-      padding: 1.5rem !important;
-      transform: scale(0.6) !important;
+      padding: 1rem !important;
+      transform: scale(0.5) !important;
     }
   }
 

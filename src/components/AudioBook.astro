@@ -4,44 +4,47 @@ import audiobookImage from "../assets/images/audiobook.webp";
 import { author } from "../config.json";
 ---
 
-<div class="bg-gray-50">
-  <div class="mx-auto max-w-screen-xl py-16">
-    <h2 class="mb-8 px-4 text-4xl font-normal text-gray-800">
-      <span class="underline">Coming Soon!</span><br />The Tale of Survival
-      Audiobook!
-    </h2>
+<section id="audio" class="py-8 sm:py-16 bg-white">
+  <div class="bg-gray-50">
+    <div class="mx-auto max-w-screen-xl py-16">
+      <h2 class="mb-8 px-4 text-4xl font-normal text-gray-800">
+        <span class="underline">Coming Soon!</span><br />The Tale of Survival
+        Audiobook!
+      </h2>
 
-    <div class="flex-none sm:flex">
-      <div class="px-4 text-base text-gray-600 sm:flex-1">
-        <p class="mb-4">
-          Immerse yourself in the story, feel the emotions, and connect with the
-          characters in a unique way.
-        </p>
+      <div class="flex-none sm:flex">
+        <div class="px-4 text-base text-gray-600 sm:flex-1">
+          <p class="mb-4">
+            Immerse yourself in the story, feel the emotions, and connect with
+            the characters in a unique way.
+          </p>
 
-        <p class="mb-4">
-          Experience the captivating journey of <em>The Tale of Survival</em> wherever
-          you are, at any time. Let the story come to life through the power of narration.
-        </p>
+          <p class="mb-4">
+            Experience the captivating journey of <em>The Tale of Survival</em> wherever
+            you are, at any time. Let the story come to life through the power of
+            narration.
+          </p>
 
-        <p class="mb-4 italic">
-          Listen to a free excerpt and get a taste of our journey:
-        </p>
-        <p class="mb-4">
-          <audio src="/audio/audio-intro.wav" controls></audio>
-        </p>
-      </div>
+          <p class="mb-4 italic">
+            Listen to a free excerpt and get a taste of our journey:
+          </p>
+          <p class="mb-4">
+            <audio src="/audio/audio-intro.wav" controls></audio>
+          </p>
+        </div>
 
-      <div class="px-4 text-base text-gray-600 sm:flex-1 flex justify-center">
-        <Image
-          src={audiobookImage}
-          alt="Audiobook cover"
-          width={500}
-          height={500}
-          format="webp"
-          class="max-w-md w-full rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105"
-          quality={90}
-        />
+        <div class="px-4 text-base text-gray-600 sm:flex-1 flex justify-center">
+          <Image
+            src={audiobookImage}
+            alt="Audiobook cover"
+            width={500}
+            height={500}
+            format="webp"
+            class="max-w-md w-full rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105"
+            quality={90}
+          />
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>

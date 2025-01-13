@@ -17,3 +17,10 @@ export interface SiteConfig {
     locale: string;
     image: string;
 }
+
+export interface MenuItem {
+    title: string;
+    path?: string;
+    children?: MenuItem[];
+    external?: boolean;
+}
